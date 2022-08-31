@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link id=link>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet" />
+
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+		integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="./vender/css/style.css" rel="stylesheet" />
+	<title>新會員註冊</title>
+</head>
+
+<body>
+	<header id="header">
+		<section-title></section-title>
+	</header>
+	<main>
+		<section class="content main" id="main">
+			<section class="content">
+				<!-- 以上皆固定 -->
+				<form class="apply">
+					<main>
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="card">
+									<div class="card-body">
+										<p class="bigNum">01</h5>
+										<p class="card-text ">案件查詢</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="card">
+									<div class="card-body">
+										<p class="bigNum">02</h5>
+										<p class="card-text">表單填寫</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="card">
+									<div class="card-body">
+										<p class="bigNum">03</h5>
+										<p class="card-text">上傳附件</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="card">
+									<div class="card-body">
+										<p class="bigNum">04</h5>
+										<p class="card-text">確認提交</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</main>
+					<!-- 以上皆固定 -->
+					<section class="Apply">
+						<section class="main">
+							<div class="row g-2">
+								<div class="col-md address">
+									<div class="addressA">
+										<div class="formTitle">地段</div>
+										<div class="form-floating">
+											<select class="form-select" id="floatingSelectGrid">
+												<option selected>--請選擇地段--</option>
+												<option value="1">One</option>
+												<option value="2">Two</option>
+												<option value="3">Three</option>
+											</select>
+											<!-- <label for="floatingSelectGrid">Works with selects</label> -->
+										</div>
+									</div>
+								</div>
+								<div class="col-md address">
+									<div class="addressA">
+										<div class="formTitle">地號</div>
+										<div class="SearchBar">
+											<input class="form-control" type="search" id="floatingInputGrid"
+												placeholder="請輸入地號" v-on:keyup.enter="SendSearch =! SendSearch">
+											<span class="input-group-append">
+												<button class="btn btn-outline-secondary border-left-0" type="button"
+													@click="SendSearch =! SendSearch">
+													<i class="fa fa-search"></i>
+												</button>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row g-2">
+								<div class="col-md">
+									<div class="addressA">
+										<div class="formTitle">案號</div>
+										<div class="SearchBar">
+											<input class="form-control" type="search" id="floatingInputGrid"
+												placeholder="請輸入地號" v-on:keyup.enter="SendSearch =! SendSearch">
+											<span class="input-group-append">
+												<button class="btn btn-outline-secondary border-left-0" type="button"
+													@click="SendSearch =! SendSearch">
+													<i class="fa fa-search"></i>
+												</button>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<div class="tip">
+							<span>僅能檢索從今日起回推<span style="font-Size:20px;font-weight:bolder;padding:0 2px">8</span>個月之內容。
+								如案件超過其區間，將不顯示於清單列表中。
+							</span>
+						</div>
+						<div class="containerBox" v-if="SendSearch" id="page">
+							<div class="container">
+								<div class="card-header">案件列表
+								</div>
+								<div class="card-body">
+									<h5 class="card-title"></h5>
+									<table>
+										<tr>
+											<th>申請日期</th>
+											<th>案件編號</th>
+											<th>申請人</th>
+											<th>案件進度</th>
+											<th>繳費情形</th>
+										</tr>
+										<tr v-for="(list,key) in totalLists">
+											<td>{{list.date}}</td>
+											<td>{{list.number}}</td>
+											<td>{{list.application}}</td>
+											<td>{{list.update}}</td>
+											<td>{{list.
+												Payment}}</td>
+										</tr>
+									</table>
+								</div>
+
+								<nav aria-label="Page navigation example">
+									<ul class="pagination justify-content-center">
+										<li class="page-item disabled"><a class="page-link">Previous</a></li>
+										<li class="page-item"><a class="page-link" href="#">1</a></li>
+										<li class="page-item"><a class="page-link" href="#">2</a></li>
+										<li class="page-item"><a class="page-link" href="#">3</a></li>
+										<li class="page-item"><a class="page-link" href="#">4</a></li>
+										<li class="page-item"><a class="page-link" href="#">5</a></li>
+										<li class="page-item">
+											<a class="page-link" href="#">Next</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+				</form>
+				<button type="button" class="btn btn-warning" @click="returnPage">返回</button>
+				<a><button type="button" class="btn btn-primary NextStep">下一步</button></a>
+				</form>
+
+			</section>
+		</section>
+	</main>
+	<footer>
+	</footer>
+	<script type="text/javascript">
+	</script>
+</body>
+<script src="./vender/js/header.js"></script>
+<script src="./vender/js/main.js"></script>
+<script>
+	(function active() {
+		let pageAct = document.querySelector("#activeF");
+		pageAct.classList.add("-active");
+		let divCard = document.querySelectorAll("div.card");
+		let bigNum = document.querySelectorAll("p.bigNum");
+		let cardText = document.querySelectorAll("p.card-text");
+		for (let i = 0; i < 2; i++) {
+			bigNum[i].classList.remove("bigNum")
+			cardText[i].classList.remove("card-text");
+			bigNum[i].classList.toggle("active");
+			cardText[i].classList.toggle("activeT");
+			divCard[i].style = "background-Color:black"
+			divCard[i].style = "border-Color: #0B4873";
+		}
+	})()
+	// console.log(pageAct);
+</script>
+
+
+
+</html>

@@ -1,0 +1,143 @@
+// 控制頁高，即便內容過少 也會將頁腳顯示
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+
+	.main {
+		width: 60%;
+		margin: 0 auto;
+	}
+
+	main {
+		min-height: calc(100% - $headerH - $footerH);
+
+		/*減去footer高度*/
+		section.content {
+			padding: 10px 0;
+			text-align: center;
+			box-sizing: border-box;
+		}
+
+		section.contentNews {
+			text-align: left;
+		}
+
+		div.card-header,
+		div.card-footer {
+			text-align: center;
+		}
+
+		.mainText {
+			font-size: $h4;
+			color: $color;
+			font-weight: 800;
+		}
+
+		h5.card-title {
+			font-weight: bold;
+			line-height: 2;
+		}
+
+	}
+
+	table {
+		width: 100%;
+
+		tr {
+			line-height: $tdH;
+
+
+			th {
+				background-color: $color;
+				color: $white;
+				line-height: $thH;
+			}
+
+			td {
+
+				line-height: $tdH;
+				height: $tdH;
+
+
+				.btn {
+					vertical-align: middle;
+					margin: auto;
+				}
+			}
+		}
+
+	}
+
+
+	// 定義所有表格為分散對齊的格式
+	div.formTitle {
+		width: 150px;
+		color: $color;
+		font-weight: bold;
+		font-size: $h5;
+		text-align-last: justify;
+		margin: 0 15px 0 0;
+	}
+
+	div.addressA {
+		margin: 10px 0 10px 0;
+	}
+
+
+	.btn {
+		line-height: 32px;
+		width: 100px;
+		height: 32px;
+		font-size: $h6;
+		line-height: $h6 ;
+		color: $white;
+	}
+
+	.trashCan {
+		width: $btnH;
+		height: $btnH;
+	}
+
+	// 按鈕顏色
+	.btn-primary {
+		background-color: $color;
+	}
+
+	.btn-primary:hover {
+		background-color: $color1_active;
+		color: $white;
+	}
+
+	// 按鈕顏色2
+	.btn-outline-primary {
+		color: $color;
+		border-color: $color;
+	}
+
+	.btn-outline-primary:hover {
+		background-color: $color1_active;
+	}
+
+	// 按鈕顏色3
+	.btn-warning {
+		background-color: $color2;
+	}
+
+	.btn-warning:hover {
+		background-color: #a85a00;
+		color: $white;
+	}
+
+	// 按鈕顏色4
+	.btn-danger {
+		background-color: $color7;
+		color: $white;
+	}
+
+	.btn-danger:hover {
+		background-color: red;
+	}
+
+}

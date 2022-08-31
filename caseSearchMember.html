@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link id=link>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+		integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+	<link href="./vender/css/style.css" rel="stylesheet" />
+
+	<title>新會員註冊</title>
+</head>
+
+<body>
+	<section class="all" id="main">
+		<header>
+			<section-title></section-title>
+		</header>
+		<main>
+			<section class="content main">
+				<section class="content">
+					<!-- 以上皆固定 -->
+					<form class="search">
+						<section class="main">
+							<div class="row g-2 hover">
+								<div class="col-md address">
+									<div class="formTitleHead animate__bounceIn"
+										style="font-style: italic ; font-size: 1.5rem ; text-align: left; margin-bottom: 15px;">
+										查詢方式
+										<span style="margin-left:2px ;font-weight: bold; font-size: 2rem">1</span>
+									</div>
+									<div class="addressA">
+										<div class="formTitle">申請地段</div>
+										<div class="form-floating">
+											<select class="form-select" id="floatingSelectGrid">
+												<option selected>--請選擇地段--</option>
+												<option v-for="(list,key) in sectList[0].DATA" :value="list.CODE">
+													{{list.SECTNAME}}</option>
+											</select>
+											<!-- <label for="floatingSelectGrid">Works with selects</label> -->
+										</div>
+									</div>
+								</div>
+								<div class="col-md address">
+									<div class="addressA">
+										<div class="formTitle">申請地號</div>
+										<div class="SearchBar">
+											<input class="form-control" type="search" id="floatingInputGrid"
+												placeholder="請輸入地號" v-on:keyup.enter="SendSearch =! SendSearch">
+											<span class="input-group-append">
+												<button class="btn btn-outline-secondary border-left-0" type="button"
+													@click="SendSearch =! SendSearch">
+													<i class="fa fa-search"></i>
+												</button>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="line"></div>
+							<div class="row g-2 hover">
+								<div class="col-md">
+									<div class="formTitleHead animate__bounceIn"
+										style="font-style: italic ; font-size: 1.5rem ; text-align: left; margin-bottom: 15px;">
+										查詢方式
+										<span style="margin-left:2px ;font-weight: bold; font-size: 2rem">2</span>
+									</div>
+									<div class="addressA">
+										<div class="formTitle">案件編號</div>
+										<div class="SearchBar">
+											<input class="form-control" type="search" id="floatingInputGrid"
+												placeholder="請輸入案件編號" v-on:keyup.enter="SendSearch =! SendSearch">
+											<span class="input-group-append">
+												<button class="btn btn-outline-secondary border-left-0" type="button"
+													@click="SendSearch =! SendSearch">
+													<i class="fa fa-search"></i>
+												</button>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+						<div class="tip">
+							<span>本服務僅供檢索<span style="font-Size:20px;font-weight:bolder;padding:0 2px">8</span>個月內之申請紀錄。
+							</span>
+						</div>
+						<!-- 先關一下 -->
+						<div class="containerBox" v-if="SendSearch" id="#page">
+							<div class="container">
+								<div class="card-header">地號列表
+								</div>
+								<div class="card-body">
+									<h5 class="card-title"></h5>
+									<table>
+										<tr>
+											<th>申請日期</th>
+											<th>案件編號</th>
+											<th>申請人</th>
+											<th>案件進度</th>
+											<th>繳費情形</th>
+											<th>操作</th>
+										</tr>
+										<tr v-for="(list,key) in totalLists">
+											<td>{{list.date}}</td>
+											<td>{{list.number}}</td>
+											<td>{{list.application}}</td>
+											<td>{{list.update}}</td>
+											<td>{{list.Payment}}</td>
+											<td width="15%" style="padding: 5px;" v-if="list.set">
+												<button type="button" class="btnW btn-primary btnType"
+													@click="btnTotalList"
+													style="border-radius:10px ; height: 100%; padding-left:8px; border:none">
+													<i class="fa-solid fa-download">｜</i>{{list.set[0].status}}</button>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<nav aria-label="Page navigation example">
+									<ul class="pagination justify-content-center">
+										<li class="page-item disabled"><a class="page-link">上一頁</a></li>
+										<li class="page-item"><a class="page-link" href="#">1</a></li>
+										<li class="page-item"><a class="page-link" href="#">2</a></li>
+										<li class="page-item"><a class="page-link" href="#">3</a></li>
+										<li class="page-item"><a class="page-link" href="#">4</a></li>
+										<li class="page-item"><a class="page-link" href="#">5</a></li>
+										<li class="page-item">
+											<a class="page-link" href="#">下一頁</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</form>
+					<div class="Upload" style="display:none">
+						<form class="sign">
+							<div class="mb-3">
+								<label for="exampleInputName" class="form-label mainText">線上補件</label>
+								<div class="outline"></div>
+						</form>
+						<form class="search">
+							<section class="main">
+								<div class="col-6">
+									<div class="row g-2" v-for="(list,key) in upLoadList[0].description">
+										<div class=" col-md address">
+											<div class="addressA">
+												<div class="formTitle">{{list.title}}</div>
+												<span>{{list.content}}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="row g-2" v-for="(list,key) in upLoadList[0].date">
+										<div class="col-md address">
+											<div class="addressA">
+												<div class="formTitle">{{list.title}}</div>
+												<span>{{list.content}}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="row g-2" v-for="(list,key) in upLoadList[0].reason">
+										<div class="col-md address">
+											<div class="addressA">
+												<div class="formTitle">{{list.title}}</div>
+												<span>{{list.content}}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</form>
+						<form class="sign">
+							<div class="mb-3">
+								<label for="exampleInputName" class="form-label mainText">應重新補件之附件上傳</label>
+								<div class="outline"></div>
+						</form>
+						<form class="apply">
+							<section class="ApplyMain mainThird" style="display:block">
+								<table class="table">
+									<tbody>
+										<tr>
+											<td width="50px">1</td>
+											<td width="320px">掛號申請書</td>
+											<td></td>
+											<td width="210px">
+												<input class="form-control form-control-sm" id="formFileSm" type="file">
+											</td>
+										</tr>
+										<tr>
+											<td scope="row">2</td>
+											<td>建築線指示(定)申請書</td>
+											<td></td>
+											<td>
+												<input class="form-control form-control-sm" id="formFileSm" type="file">
+											</td>
+
+										</tr>
+										<tr>
+											<td scope="row">3</td>
+											<td>地籍圖謄本</td>
+											<td></td>
+											<td>
+												<input class="form-control form-control-sm" id="formFileSm" type="file">
+											</td>
+
+										</tr>
+										<tr>
+											<td scope="row">4</td>
+											<td>使用分區證明</td>
+											<td></td>
+											<td>
+												<input class="form-control form-control-sm" id="formFileSm" type="file">
+											</td>
+
+										</tr>
+										<tr>
+											<td scope="row">5</td>
+											<td>土地登記謄本</td>
+											<td></td>
+											<td><input class="form-control form-control-sm" id="formFileSm" type="file">
+											</td>
+
+										</tr>
+										<tr>
+											<td scope="row">6</td>
+											<td>都市計畫圖</td>
+											<td></td>
+											<td><input class="form-control form-control-sm" id="formFileSm" type="file">
+											</td>
+
+										</tr>
+										<tr>
+											<td scope="row">7</td>
+											<td>都市計畫樁位圖</td>
+											<td></td>
+											<td><input class="form-control form-control-sm" id="formFileSm" type="file">
+											</td>
+
+										<tr>
+											<td scope="row">8</td>
+											<td>紙本地籍套繪圖</td>
+											<td></td>
+											<td><input class="form-control form-control-sm" id="formFileSm" type="file">
+											</td>
+
+										</tr>
+										<tr>
+											<td scope="row">9</td>
+											<td>電子地籍套繪圖</td>
+											<td></td>
+											<td><input class="form-control form-control-sm" id="formFileSm" type="file">
+											</td>
+
+										</tr>
+										<tr>
+											<td scope="row">10</td>
+											<td>現況實測圖</td>
+											<td></td>
+											<td><input class="form-control form-control-sm" id="formFileSm" type="file">
+											</td>
+
+										</tr>
+										<tr>
+											<td scope="row">11</td>
+											<td>現況照片</td>
+											<td></td>
+											<td><input class="form-control form-control-sm" id="formFileSm" type="file">
+											</td>
+
+										</tr>
+										<tr>
+											<td style="color:#DC7700" scope="row">12</td>
+											<td style="color:#DC7700">建築線申請書圖</td>
+											<td>
+												<img src="./images/source/tips.svg" alt="" srcset="">
+											</td>
+											<td><input class="form-control form-control-sm" id="formFileSm" type="file"
+													style="color:#DC7700">
+											</td>
+										</tr>
+										<tr>
+											<td scope="row">13</td>
+											<td>地籍套繪圖</td>
+											<td></td>
+											<td><input class="form-control form-control-sm" id="formFileSm" type="file">
+											</td>
+
+										</tr>
+										<tr>
+											<td scope="row">14</td>
+											<td>現況計畫圖</td>
+											<td></td>
+											<td><input class="form-control form-control-sm" id="formFileSm" type="file">
+											</td>
+										</tr>
+										<tr>
+											<td scope="row">15</td>
+											<td>其他與申請案有關之參考資料</td>
+											<td></td>
+											<td><input class="form-control form-control-sm" id="formFileSm" type="file">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="tip" id="ApplyBegin">
+									<span>提醒：除建築線申請書圖，其餘附件均只能上傳一個檔案，<br>
+										如多頁內容，請先行合併為一PDF檔案格式再上傳。
+									</span>
+								</div>
+								<div class="inputSearch">
+									<div class="form-box">
+										<input class="form-check-input" type="checkbox" id="check1" name="option1"
+											value="something">
+										<label class="form-check-label">我同意本案上傳之書類文件及圖說等資料，與原核准案書圖相符，
+											如有書圖不實上傳情形，願承擔一切法律相關責任。</label>
+									</div>
+								</div>
+								<button type="button" class="btn btn-warning" @click="returnPage">返回</button>
+								<button type="button" class="btn btn-primary" @click="upLoadFinish">提交</button>
+							</section>
+						</form>
+					</div>
+
+				</section>
+			</section>
+		</main>
+
+		<footer>
+		</footer>
+	</section>
+</body>
+
+<script src="./vender/js/header.js"></script>
+<script src="./vender/js/main.js"></script>
+<script>
+
+	(function active() {
+		let pageAct = document.querySelector("#activeS");
+		pageAct.classList.add("-active");
+	})()
+
+	// console.log(pageAct);
+</script>
+
+
+
+</html>

@@ -1,0 +1,63 @@
+form.news {
+	width: 100%;
+	height: auto;
+	border-radius: 1rem;
+	border: 0.5px $color solid;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+
+	div.container {
+		width: 100%;
+		border-radius: 1rem;
+		padding: 0;
+
+		div.card {
+			border-radius: 0.5rem;
+			overflow: hidden;
+
+
+			div.card-header {
+				background-color: $color;
+				color: $white;
+
+			}
+		}
+
+		div.card-body {
+
+			overflow-y: scroll;
+			height: 50vh;
+
+			h5.card-title {}
+
+			P {
+				line-height: 2;
+				text-align: left;
+			}
+
+			table {
+				line-height: 1.6;
+
+				td:first-child {
+					width: 3%;
+				}
+
+				td {
+					text-align: left;
+				}
+			}
+		}
+
+		div.card-footer {
+			height: 15vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			// align-items: center;
+		}
+	}
+
+
+}

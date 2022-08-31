@@ -1,0 +1,1734 @@
+@charset "UTF-8";
+@import "./reset.css";
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+html .main,
+body .main {
+  width: 60%;
+  margin: 0 auto;
+}
+html main,
+body main {
+  min-height: calc(100% - 140px - 60px);
+  /*減去footer高度*/
+}
+html main section.content,
+body main section.content {
+  padding: 10px 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+html main section.contentNews,
+body main section.contentNews {
+  text-align: left;
+}
+html main div.card-header,
+html main div.card-footer,
+body main div.card-header,
+body main div.card-footer {
+  text-align: center;
+}
+html main .mainText,
+body main .mainText {
+  font-size: 22px;
+  color: #0B4873;
+  font-weight: 800;
+}
+html main h5.card-title,
+body main h5.card-title {
+  font-weight: bold;
+  line-height: 2;
+}
+html table,
+body table {
+  width: 100%;
+}
+html table tr,
+body table tr {
+  line-height: 35px;
+}
+html table tr th,
+body table tr th {
+  background-color: #0B4873;
+  color: #FFFFFF;
+  line-height: 30px;
+}
+html table tr td,
+body table tr td {
+  line-height: 35px;
+  height: 35px;
+}
+html table tr td .btn,
+body table tr td .btn {
+  vertical-align: middle;
+  margin: auto;
+}
+html div.formTitle,
+body div.formTitle {
+  width: 150px;
+  color: #0B4873;
+  font-weight: bold;
+  font-size: 18px;
+  -moz-text-align-last: justify;
+       text-align-last: justify;
+  margin: 0 15px 0 0;
+}
+html div.addressA,
+body div.addressA {
+  margin: 10px 0 10px 0;
+}
+html .btn,
+body .btn {
+  line-height: 32px;
+  width: 100px;
+  height: 32px;
+  font-size: 16px;
+  line-height: 16px;
+  color: #FFFFFF;
+}
+html .trashCan,
+body .trashCan {
+  width: 32px;
+  height: 32px;
+}
+html .btn-primary,
+body .btn-primary {
+  background-color: #0B4873;
+}
+html .btn-primary:hover,
+body .btn-primary:hover {
+  background-color: #032034;
+  color: #FFFFFF;
+}
+html .btn-outline-primary,
+body .btn-outline-primary {
+  color: #0B4873;
+  border-color: #0B4873;
+}
+html .btn-outline-primary:hover,
+body .btn-outline-primary:hover {
+  background-color: #032034;
+}
+html .btn-warning,
+body .btn-warning {
+  background-color: #DC7700;
+}
+html .btn-warning:hover,
+body .btn-warning:hover {
+  background-color: #a85a00;
+  color: #FFFFFF;
+}
+html .btn-danger,
+body .btn-danger {
+  background-color: #761306;
+  color: #FFFFFF;
+}
+html .btn-danger:hover,
+body .btn-danger:hover {
+  background-color: red;
+}
+
+* {
+  font-family: Noto Sans TC;
+}
+
+header {
+  outline: #0B4873 5px solid;
+  width: 100%;
+  height: 140px;
+  padding-top: 20px;
+  background-color: #fff;
+  box-shadow: 0, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+section.title {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+section.title section.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50%;
+}
+section.title section.logo a {
+  color: #0B4873;
+  text-decoration: none;
+}
+section.title section.logo a div.logoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 5px 0;
+  border-bottom: 2px solid #0B4873;
+}
+section.title section.logo a div.logoContainer div.logo {
+  color: #0B4873;
+  font-weight: bolder;
+  font-size: 2.5rem;
+}
+section.title section.logo a div.logoContainer div.logoText {
+  padding-left: 5px;
+  color: #0B4873;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 1150px) {
+  section.title section.logo a div.logoContainer {
+    flex-direction: column;
+    border: none;
+  }
+  section.title section.logo a div.logo {
+    border-bottom: 2px solid #0B4873;
+  }
+  section.title section.logo a div.logoText {
+    -moz-text-align-last: justify;
+         text-align-last: justify;
+    padding: 0 5px;
+    width: 100%;
+  }
+}
+section.title section.logo ul {
+  display: flex;
+  padding: 0;
+}
+section.title section.logo ul li {
+  justify-content: center;
+}
+section.title section.logo ul li a,
+section.title section.logo ul li span {
+  color: #0B4873;
+  text-decoration: none;
+  font-size: 14px;
+}
+section.title section.logo ul li a {
+  margin-left: 5px;
+}
+section.title section.logo ul li span.status {
+  color: #DC7700;
+  text-decoration: underline;
+  text-underline-offset: 1px;
+}
+section.title section.select_container {
+  width: 100%;
+  border: solid #0B4873 1px;
+  margin: 0 auto;
+  border-radius: 1rem 1rem 0 0;
+  margin-top: 20px;
+  justify-self: end;
+  overflow: hidden;
+}
+section.title section.select_container ul {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+section.title section.select_container ul li {
+  width: 100%;
+  display: inline-flex;
+  height: 100%;
+  overflow: hidden;
+}
+section.title section.select_container ul li a {
+  text-align: center;
+  width: 100%;
+  text-decoration: none;
+  color: #0B4873;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  font-weight: bold;
+  font-size: 24px;
+}
+section.title section.select_container ul li a i {
+  padding-right: 0.5rem;
+}
+section.title section.select_container ul li a:hover {
+  background-color: #0B4873;
+  color: #FFFFFF;
+  font-weight: lighter;
+}
+section.title section.select_container ul li .-active {
+  background-color: #0B4873;
+  color: #FFFFFF;
+  font-weight: lighter;
+}
+
+* {
+  font-family: Noto Sans TC;
+}
+
+header.step {
+  outline: #032034 5px solid;
+  width: 100%;
+  height: 182px;
+  padding-top: 20px;
+  background-color: #fff;
+  box-shadow: 0, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 100;
+}
+header.step section.title {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+header.step section.title section.logo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+header.step section.title section.logo section.space {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+header.step section.title section.logo a {
+  height: 100%;
+}
+header.step section.title section.logo a img {
+  height: 96%;
+}
+@media screen and (max-width: 950px) {
+  header.step section.title section.logo a img {
+    width: 90%;
+  }
+}
+header.step section.title section.logo ul {
+  display: flex;
+  padding: 0;
+}
+header.step section.title section.logo ul li {
+  justify-content: center;
+}
+header.step section.title section.logo ul li a,
+header.step section.title section.logo ul li span {
+  color: #0B4873;
+  text-decoration: none;
+  font-size: 14px;
+}
+header.step section.title section.logo ul li a {
+  margin-left: 5px;
+}
+header.step section.title section.logo ul li span.status {
+  color: #DC7700;
+  text-decoration: underline;
+  text-underline-offset: 1px;
+}
+header.step section.title section.logo div.containerBox {
+  width: 100%;
+  background-color: #032034;
+  height: 65%;
+  display: block;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+header.step section.title section.logo div.containerBox div.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+header.step section.title section.logo div.containerBox div.content section.StepTitle {
+  color: yellow;
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+header.step section.title section.logo div.containerBox div.content div.box {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+header.step section.title section.logo div.containerBox div.content div.box .mdl-card {
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+}
+header.step section.title section.logo div.containerBox div.content div.box .mdl-card__supporting-text {
+  width: 100%;
+  padding: 0;
+}
+header.step section.title section.logo div.containerBox div.content div.box .mdl-stepper-horizontal-alternative {
+  display: table;
+  width: 100%;
+}
+header.step section.title section.logo div.containerBox div.content div.box .mdl-stepper-horizontal-alternative .mdl-stepper-step {
+  display: table-cell;
+  position: relative;
+  padding: 0;
+}
+header.step section.title section.logo div.containerBox div.content div.box .mdl-stepper-horizontal-alternative .mdl-stepper-step:first-child .mdl-stepper-bar-left,
+header.step section.title section.logo div.containerBox div.content div.box .mdl-stepper-horizontal-alternative .mdl-stepper-step:last-child .mdl-stepper-bar-right {
+  display: none;
+}
+header.step section.title section.logo div.containerBox div.content div.box .mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-circle {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2em;
+  font-size: 12px;
+  color: #0B4873;
+}
+header.step section.title section.logo div.containerBox div.content div.box .mdl-stepper-circle {
+  background-color: #FFFFFF;
+}
+header.step section.title section.logo div.containerBox div.content div.box .mdl-stepper-horizontal-alternative .mdl-stepper-step.step-done .mdl-stepper-circle:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f084";
+}
+header.step section.title section.logo div.containerBox div.content div.box .mdl-stepper-horizontal-alternative .mdl-stepper-step.editable-step .mdl-stepper-circle:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f007";
+}
+header.step section.title section.logo div.containerBox div.content div.box .mdl-stepper-horizontal-alternative .mdl-stepper-step.step-third .mdl-stepper-circle:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f007";
+}
+header.step section.title section.logo div.containerBox div.content div.box .mdl-stepper-title {
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: normal;
+}
+header.step section.title section.logo div.containerBox div.content div.box .mdl-stepper-bar-left,
+header.step section.title section.logo div.containerBox div.content div.box .mdl-stepper-bar-right {
+  position: absolute;
+  top: 10px;
+  height: 1px;
+  border-top: 2px solid #FFFFFF;
+}
+header.step section.title section.logo div.containerBox div.content div.box .mdl-stepper-bar-right {
+  right: 0;
+  left: 50%;
+  margin-left: 20px;
+}
+header.step section.title section.logo div.containerBox div.content div.box .mdl-stepper-bar-left {
+  left: 0;
+  right: 50%;
+  margin-right: 20px;
+}
+
+form.login div div.outline {
+  outline: solid #0B4873 1px;
+}
+form.login div div.card {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  height: 26px;
+}
+form.login div .formTitle {
+  width: 150px;
+  color: #0B4873;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+}
+form.login div.pass {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-left: auto;
+}
+form.login div.pass a {
+  margin-top: -20px;
+  display: block;
+  color: #761306;
+  text-align: right;
+  font-size: 14px;
+}
+
+section.content div.loginBtn a:first-child {
+  display: none;
+}
+section.content a.changeIndex {
+  display: none;
+}
+
+form.loginStepFirst div div.outline {
+  outline: solid #0B4873 1px;
+}
+form.loginStepFirst div div.card {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  height: 26px;
+}
+form.loginStepFirst div .formTitle {
+  width: 150px;
+  color: #0B4873;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+}
+form.loginStepFirst div.pass {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+form.loginStepFirst div.pass div {
+  width: 150px;
+  margin-right: 15px;
+}
+form.loginStepFirst div.pass p {
+  margin-left: auto;
+  width: 100%;
+  margin-top: -20px;
+  display: block;
+  color: #761306;
+  text-align: left;
+  font-size: 14px;
+  text-decoration: none;
+}
+form.loginStepFirst .addressA {
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 38px;
+  margin: 30px 0;
+}
+form.loginStepFirst .addressA .form-control,
+form.loginStepFirst .addressA .form-floating {
+  margin-left: auto;
+  width: 100%;
+  height: 100%;
+}
+form.loginStepFirst .addressA #floatingSelectGrid,
+form.loginStepFirst .addressA #floatingInputGrid {
+  padding-left: 10px;
+  text-align: left;
+  height: 100%;
+}
+
+form.loginStepSecond div div.outline {
+  outline: solid #0B4873 1px;
+}
+form.loginStepSecond div div.card {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  height: 26px;
+}
+form.loginStepSecond div div.card button.btn {
+  width: 200px;
+}
+form.loginStepSecond div .formTitle {
+  width: 150px;
+  color: #0B4873;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+}
+form.loginStepSecond .addressA {
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 38px;
+  margin: 30px 0;
+}
+form.loginStepSecond .addressA .form-control,
+form.loginStepSecond .addressA .form-floating {
+  margin-left: auto;
+  width: 100%;
+  height: 100%;
+}
+form.loginStepSecond .addressA #floatingSelectGrid,
+form.loginStepSecond .addressA #floatingInputGrid {
+  padding-left: 10px;
+  text-align: left;
+  height: 100%;
+}
+form.loginStepSecond div.pass {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+form.loginStepSecond div.pass div {
+  width: 150px;
+  margin-right: 15px;
+}
+form.loginStepSecond div.pass p {
+  margin-left: auto;
+  width: 100%;
+  margin-top: -20px;
+  display: block;
+  color: #761306;
+  text-align: left;
+  font-size: 14px;
+  text-decoration: none;
+}
+form.loginStepSecond div.tipArea {
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #0B4873;
+  padding: 8px;
+  border-radius: 0.5rem;
+}
+form.loginStepSecond div.tipArea section.Area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+form.loginStepSecond div.tipArea section.Area section.Second {
+  letter-spacing: 10;
+  color: #0B4873;
+  font-weight: lighter;
+  font-size: 14px;
+  text-align: left;
+  line-height: 1.6;
+  letter-spacing: 2px;
+  text-align: center;
+}
+form.loginStepSecond div.tipArea section.Area section.Second a {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+form.loginStepThird div div.outline {
+  outline: solid #0B4873 1px;
+}
+form.loginStepThird div div.card {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  height: 26px;
+}
+form.loginStepThird div .formTitle {
+  width: 150px;
+  color: #0B4873;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+}
+form.loginStepThird p {
+  width: 100%;
+  color: #0B4873;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+
+form.sign {
+  box-sizing: border-box;
+}
+form.sign div div.outline {
+  outline: solid #0B4873 1px;
+}
+form.sign div div.card {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  height: 26px;
+}
+form.sign div div.card div.tip {
+  position: absolute;
+  top: 115%;
+  left: 150px;
+}
+form.sign div div.card:not(.notImport):before {
+  content: "＊";
+  color: #761306;
+  font-size: 0.1rem;
+  position: absolute;
+  top: 50%;
+  right: 101%;
+  transform: translate(0, -50%);
+}
+form.sign div.singtip {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+form.sign div.singtip div {
+  width: 150px;
+  margin-right: 15px;
+}
+form.sign div.singtip p {
+  margin-left: auto;
+  width: 100%;
+  margin-top: -20px;
+  display: block;
+  color: #761306;
+  text-align: left;
+  font-size: 14px;
+  text-decoration: none;
+}
+form.sign section.checkBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+form.sign section.checkBox div.checkBoxTip {
+  margin-left: 5px;
+}
+
+form.news {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  border: 0.5px #0B4873 solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+form.news div.container {
+  width: 100%;
+  border-radius: 1rem;
+  padding: 0;
+}
+form.news div.container div.card {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+form.news div.container div.card div.card-header {
+  background-color: #0B4873;
+  color: #FFFFFF;
+}
+form.news div.container div.card-body {
+  overflow-y: scroll;
+  height: 50vh;
+}
+form.news div.container div.card-body P {
+  line-height: 2;
+  text-align: left;
+}
+form.news div.container div.card-body table {
+  line-height: 1.6;
+}
+form.news div.container div.card-body table td:first-child {
+  width: 3%;
+}
+form.news div.container div.card-body table td {
+  text-align: left;
+}
+form.news div.container div.card-footer {
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+form.search section.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 99%;
+  padding-top: 15px;
+}
+form.search section.main div.row {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  flex-grow: 3;
+}
+form.search section.main div.row .address {
+  width: 100%;
+}
+form.search section.main div.row .addressA {
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 32px;
+  margin-bottom: 10px;
+}
+form.search section.main div.row .addressA div.formTitle {
+  width: 150px;
+  color: #0B4873;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+}
+form.search section.main div.row .addressA .form-control,
+form.search section.main div.row .addressA .form-floating {
+  margin-left: auto;
+  width: 100%;
+  height: 100%;
+}
+form.search section.main div.row .addressA #floatingSelectGrid,
+form.search section.main div.row .addressA #floatingInputGrid {
+  padding: 0;
+  padding-left: 10px;
+  text-align: left;
+  height: 100%;
+}
+form.search section.main div.line {
+  border: 1px solid #0B4873;
+  height: auto;
+  background-color: #0B4873;
+  margin: 0 10px;
+}
+form.search div.tip {
+  margin-top: 10px;
+  border-radius: 0.5rem;
+  border: solid #0B4873 1px;
+  width: 100%;
+  padding: 10px 0;
+}
+form.search div.tip span {
+  line-height: 1.6;
+  color: #0B4873;
+  font-weight: lighter;
+  font-size: 14px;
+  text-align: left;
+}
+form.search div.containerBox {
+  margin-top: 1rem;
+  width: 100%;
+  height: auto;
+  border: 0.5px #0B4873 solid;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+form.search div.containerBox div.container {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0;
+  overflow: hidden;
+  outline: solid #0B4873 1px;
+}
+form.search div.containerBox div.container div.card-header {
+  background-color: #FFFFFF;
+  width: 100%;
+  border-bottom: 0px;
+  padding: 0;
+  line-height: 32px;
+  font-weight: bolder;
+  font-size: 18px;
+  margin-top: 2px;
+}
+form.search div.containerBox div.container div.card-body {
+  height: auto;
+  padding: 0;
+}
+form.search div.containerBox div.container table {
+  width: 100%;
+}
+form.search div.containerBox div.container table tr {
+  outline: solid 0.1px #0B4873;
+  line-height: 32px;
+  border-left: 0px;
+  border-right: 0px;
+}
+form.search div.containerBox div.container table th {
+  background-color: #0B4873;
+  color: #FFFFFF;
+  font-weight: lighter;
+  line-height: 32px;
+}
+form.search div.containerBox div.container table td {
+  line-height: 32px;
+  outline: solid 0.1px #0B4873;
+}
+form.search div.containerBox nav {
+  line-height: 32px;
+  padding: 10px;
+}
+form.search .SearchBar {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+form.search .SearchBar input {
+  border: none;
+}
+form.search .SearchBar span button {
+  height: 100%;
+  width: 100%;
+  color: #0B4873;
+  border: none;
+}
+form.search .btnW {
+  text-align: left;
+  width: 180px;
+  vertical-align: middle;
+}
+form.search div.formTitleHead {
+  width: 150px;
+  color: #0B4873;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+}
+
+div.Upload form.search {
+  text-align: left;
+  margin-bottom: 20px;
+}
+div.Upload form.search section.main {
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+div.Upload form.search section.main div.row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 3;
+}
+div.Upload form.search section.main div.row div.addressA {
+  flex-direction: row;
+  align-items: center;
+}
+
+form.apply .ApplyMain {
+  display: none;
+}
+form.apply .mainFirst {
+  display: block;
+}
+form.apply main {
+  display: flex;
+  justify-content: center;
+}
+form.apply main div.row {
+  padding: 0;
+  width: 100%;
+}
+form.apply main div.row div.col-sm-3 {
+  padding: 0;
+}
+form.apply main div.row div.col-sm-3 div.card {
+  padding-bottom: 3px;
+  border-radius: 0px;
+  border: 0px;
+  border-bottom: 2px solid #BEBEBE;
+}
+form.apply main div.row div.col-sm-3 div.card div.card-body {
+  padding: 0;
+}
+form.apply main div.row div.col-sm-3 div.card div.card-body p.bigNum {
+  font-size: 24px;
+  font-weight: lighter;
+  color: #BEBEBE;
+}
+form.apply main div.row div.col-sm-3 div.card div.card-body .active {
+  font-weight: bolder;
+  color: #0B4873;
+}
+form.apply main div.row div.col-sm-3 div.card div.card-body p.card-text {
+  font-size: 14px;
+  color: #BEBEBE;
+}
+form.apply main .active {
+  font-size: 24px;
+  font-weight: bolder;
+  color: #0B4873;
+}
+form.apply main .activeT {
+  font-size: 14px;
+  font-weight: bolder;
+  color: #0B4873;
+}
+form.apply main .activeBb {
+  padding-bottom: 3px;
+  border-radius: 0px;
+  border: 0px;
+}
+form.apply section.mainFirst section.main {
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 15px;
+}
+form.apply section.mainFirst section.main div.row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+form.apply section.mainFirst section.main div.row .address {
+  width: 100%;
+}
+form.apply section.mainFirst section.main div.row div.addressA {
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 32px;
+  margin-bottom: 10px;
+}
+form.apply section.mainFirst section.main div.line {
+  border: 1px solid #0B4873;
+  height: 85px;
+  background-color: #0B4873;
+}
+form.apply section.mainFirst section.main .form-control,
+form.apply section.mainFirst section.main .form-floating {
+  margin-left: auto;
+  width: 100%;
+  height: 100%;
+}
+form.apply section.mainFirst section.main #floatingSelectGrid,
+form.apply section.mainFirst section.main #floatingInputGrid {
+  padding: 0;
+  padding-left: 10px;
+  text-align: left;
+  height: 100%;
+}
+form.apply section.mainFirst div.tip {
+  margin: 10px 0;
+  border-radius: 0.5rem;
+  border: solid #0B4873 1px;
+  width: 100%;
+  padding: 10px 0;
+}
+form.apply section.mainFirst div.tip div.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+form.apply section.mainFirst div.tip div.container ul,
+form.apply section.mainFirst div.tip div.container li {
+  font-size: 14px;
+  text-align: left;
+  line-height: 1.6;
+  margin: 5px 0;
+  border-radius: 5px;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+form.apply section.mainFirst div.tip div.container div.sectionLeft ul {
+  color: #FFFFFF;
+}
+form.apply section.mainFirst div.tip div.container div.sectionLeft ul li {
+  background-color: #0B4873;
+  padding: 0.3px 5px;
+}
+form.apply section.mainFirst div.tip div.container div.sectionLeft ul li:last-child {
+  background-color: #DC7700;
+}
+form.apply section.mainFirst div.tip div.container div.sectionRight ul li {
+  padding: 0 6px;
+  color: #0B4873;
+}
+form.apply section.mainFirst div.tip span {
+  line-height: 1.6;
+  color: #0B4873;
+  font-weight: lighter;
+  font-size: 14px;
+  text-align: left;
+}
+form.apply section.mainFirst div.containerBox {
+  margin: 10px 0;
+  width: 100%;
+  height: auto;
+  border: 0.5px #0B4873 solid;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  display: none;
+}
+form.apply section.mainFirst div.containerBox div.container {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0;
+  overflow: hidden;
+  outline: solid #0B4873 1px;
+}
+form.apply section.mainFirst div.containerBox div.container div.card-header {
+  background-color: #FFFFFF;
+  width: 100%;
+  border-bottom: 0px;
+  padding: 0;
+  line-height: 32px;
+  font-weight: bolder;
+  font-size: 18px;
+  margin-top: 2px;
+}
+form.apply section.mainFirst div.containerBox div.container div.card-body {
+  height: auto;
+  padding: 0;
+}
+form.apply section.mainFirst div.containerBox div.container table tr {
+  border: auto 0;
+  outline: solid 0.1px #0B4873;
+}
+form.apply section.mainFirst div.containerBox div.container table th {
+  font-weight: lighter;
+}
+form.apply section.mainFirst div.containerBox div.container table td {
+  outline: solid 0.1px #0B4873;
+}
+form.apply section.mainFirst div.containerBox div.container table .btn {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form.apply section.mainFirst div.containerBox div.container .ApplyMap {
+  display: none;
+}
+form.apply section.mainFirst div.containerBox nav {
+  line-height: 32px;
+  padding: 10px;
+}
+form.apply section.mainFirst .SearchBar {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+form.apply section.mainFirst .SearchBar input {
+  border: none;
+}
+form.apply section.mainFirst .SearchBar span button {
+  height: 100%;
+  width: 100%;
+  color: #0B4873;
+  border: none;
+}
+form.apply section.mainFirst div.inputSearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form.apply section.mainFirst div.inputSearch div.form-box input,
+form.apply section.mainFirst div.inputSearch div.form-box label {
+  margin: 0;
+}
+form.apply section.mainFirst div.inputSearch div,
+form.apply section.mainFirst div.inputSearch a {
+  margin: 0 10px;
+}
+form.apply section.mainFirst .NextStep {
+  display: none;
+}
+form.apply section.mainSecond {
+  margin-bottom: 20px;
+}
+form.apply section.mainSecond section.main {
+  width: 100%;
+  padding-top: 15px;
+}
+form.apply section.mainSecond section.main div.borderLeft {
+  margin-top: 20px;
+  display: flex;
+}
+form.apply section.mainSecond section.main div.borderLeft div.line {
+  border-left: 5px solid #0B4873;
+}
+form.apply section.mainSecond section.main div.borderLeft div.mainText {
+  margin-left: 5px;
+  text-align: left;
+}
+form.apply section.mainSecond section.main div.row {
+  display: flex;
+  flex-direction: column;
+}
+form.apply section.mainSecond section.main div.row section.contentTextBox {
+  display: flex;
+  flex-wrap: wrap;
+}
+form.apply section.mainSecond section.main div.row section.contentTextBox .col-6,
+form.apply section.mainSecond section.main div.row section.contentTextBox .col-12 {
+  padding-right: 10px;
+}
+form.apply section.mainSecond section.main div.row section.contentTextBox .col-12 {
+  width: 100%;
+}
+form.apply section.mainSecond section.main div.row section.contentTextBox div.address {
+  position: relative;
+}
+form.apply section.mainSecond section.main div.row section.contentTextBox div.addressA:not(.notImport):before {
+  content: "＊";
+  color: #761306;
+  font-size: 0.5rem;
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translate(0, -50%);
+}
+form.apply section.mainSecond section.main div.row section.contentTextBox div.formTitle {
+  flex-shrink: 0;
+  width: 100px;
+}
+form.apply section.mainSecond section.main div.row section.contentTextBox div.addressA {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  margin: 5px 0;
+}
+form.apply section.mainSecond section.main .form-control,
+form.apply section.mainSecond section.main .form-floating {
+  margin-left: auto;
+  width: 100%;
+  height: 100%;
+}
+form.apply section.mainSecond section.main #floatingSelectGrid,
+form.apply section.mainSecond section.main #floatingInputGrid {
+  padding: 0;
+  padding-left: 10px;
+  text-align: left;
+  height: 100%;
+}
+form.apply section.mainSecond div.tip {
+  margin: 10px 0;
+  border-radius: 0.5rem;
+  border: solid #0B4873 1px;
+  width: 100%;
+  padding: 10px 0;
+}
+form.apply section.mainSecond div.tip div.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+form.apply section.mainSecond div.tip div.container ul,
+form.apply section.mainSecond div.tip div.container li {
+  font-size: 16px;
+  text-align: left;
+  line-height: 1.6;
+  margin: 5px 0;
+  border-radius: 1rem;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+form.apply section.mainSecond div.tip div.container div.sectionLeft ul {
+  color: #FFFFFF;
+}
+form.apply section.mainSecond div.tip div.container div.sectionLeft ul li {
+  background-color: #0B4873;
+  padding: 0.5px 10px;
+}
+form.apply section.mainSecond div.tip div.container div.sectionLeft ul li:last-child {
+  background-color: #DC7700;
+}
+form.apply section.mainSecond div.tip div.container div.sectionRight ul li {
+  padding: 0 6px;
+  color: #0B4873;
+}
+form.apply section.mainSecond div.tip span {
+  line-height: 1.6;
+  color: #0B4873;
+  font-weight: lighter;
+  font-size: 16px;
+  text-align: left;
+}
+form.apply section.mainSecond div.containerBox {
+  margin: 10px 0;
+  width: 100%;
+  height: auto;
+  border: 0.5px #0B4873 solid;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  display: none;
+}
+form.apply section.mainSecond div.containerBox div.container {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0;
+  overflow: hidden;
+  outline: solid #0B4873 1px;
+}
+form.apply section.mainSecond div.containerBox div.container div.card-header {
+  background-color: #FFFFFF;
+  width: 100%;
+  border-bottom: 0px;
+  padding: 0;
+  line-height: 32px;
+  font-weight: bolder;
+  font-size: 18px;
+  margin-top: 2px;
+}
+form.apply section.mainSecond div.containerBox div.container div.card-body {
+  height: auto;
+  padding: 0;
+}
+form.apply section.mainSecond div.containerBox div.container table tr {
+  border: auto 0;
+  outline: solid 0.1px #0B4873;
+}
+form.apply section.mainSecond div.containerBox div.container table th {
+  font-weight: lighter;
+}
+form.apply section.mainSecond div.containerBox div.container table td {
+  outline: solid 0.1px #0B4873;
+}
+form.apply section.mainSecond div.containerBox div.container table .btn {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form.apply section.mainSecond div.containerBox div.container .ApplyMap {
+  display: none;
+}
+form.apply section.mainSecond div.containerBox nav {
+  line-height: 32px;
+  padding: 10px;
+}
+form.apply section.mainSecond .SearchBar {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+form.apply section.mainSecond .SearchBar input {
+  border: none;
+}
+form.apply section.mainSecond .SearchBar span button {
+  height: 100%;
+  width: 100%;
+  color: #0B4873;
+  border: none;
+}
+form.apply section.mainSecond .SearchBarA {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 0.25rem;
+}
+form.apply section.mainSecond div.inputSearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form.apply section.mainSecond div.inputSearch div.form-box input,
+form.apply section.mainSecond div.inputSearch div.form-box label {
+  margin: 0;
+}
+form.apply section.mainSecond div.inputSearch div,
+form.apply section.mainSecond div.inputSearch a {
+  margin: 0 10px;
+}
+form.apply section.mainSecond .NextStep {
+  display: none;
+}
+form.apply section.mainThird th {
+  color: #0B4873;
+  text-align: center;
+}
+form.apply section.mainThird td {
+  font-size: 18px;
+  color: #0B4873;
+  text-align: center;
+  font-weight: 900;
+  line-height: auto;
+  position: relative;
+  line-height: 28px;
+  padding: 5px;
+}
+form.apply section.mainThird td img {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  text-align: left;
+  height: 100%;
+  top: 20%;
+  left: -20%;
+}
+form.apply section.mainThird td:nth-child(2)::after {
+  content: " (.pdf)";
+  font-size: 12px;
+}
+form.apply section.mainThird tr:nth-child(12) td:nth-child(2)::after {
+  content: " (.jpg/jpeg)";
+}
+form.apply section.mainThird tr:hover {
+  font-weight: lighter;
+  outline: #0B4873 1px solid;
+}
+form.apply section.mainThird tr:nth-child(12):hover {
+  font-weight: lighter;
+  outline: #DC7700 1px solid;
+}
+form.apply section.mainThird th:nth-child(even),
+form.apply section.mainThird td:nth-child(even) {
+  text-align: left;
+}
+form.apply section.mainThird div.tip {
+  margin: 10px 0;
+  border-radius: 0.5rem;
+  border: solid #0B4873 1px;
+  width: 100%;
+  padding: 10px 0;
+}
+form.apply section.mainThird div.tip div.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+form.apply section.mainThird div.tip div.container ul,
+form.apply section.mainThird div.tip div.container li {
+  font-size: 14px;
+  text-align: left;
+  line-height: 1.6;
+  margin: 5px 0;
+  border-radius: 1rem;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+form.apply section.mainThird div.tip span {
+  line-height: 1.6;
+  color: #0B4873;
+  font-weight: lighter;
+  font-size: 14px;
+  text-align: left;
+}
+form.apply section.mainThird div.inputSearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+form.apply section.mainThird div.inputSearch div.form-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+form.apply section.mainThird div.inputSearch div.form-box input,
+form.apply section.mainThird div.inputSearch div.form-box label {
+  padding: 5px;
+  margin: 0;
+  line-height: 1.6;
+}
+form.apply section.mainThird div.inputSearch div,
+form.apply section.mainThird div.inputSearch a {
+  margin: 0 10px;
+}
+form.apply section.mainFourth div.containerBox {
+  margin: 10px 0;
+  width: 100%;
+  height: auto;
+  border: 0.5px #0B4873 solid;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+form.apply section.mainFourth div.containerBox div.container {
+  border-radius: 0.5rem;
+  padding: 0;
+  overflow: hidden;
+  outline: solid #0B4873 1px;
+}
+form.apply section.mainFourth div.containerBox div.container div.card-header {
+  background-color: #FFFFFF;
+  width: 100%;
+  border-bottom: 0px;
+  padding: 0;
+  line-height: 32px;
+  font-weight: bolder;
+  font-size: 18px;
+  margin-top: 2px;
+}
+form.apply section.mainFourth div.containerBox div.container div.card-body {
+  height: auto;
+  padding: 0;
+}
+form.apply section.mainFourth div.containerBox div.container table tr {
+  border: auto 0;
+  outline: solid 0.1px #0B4873;
+}
+form.apply section.mainFourth div.containerBox div.container table th {
+  font-weight: lighter;
+  text-align: left;
+  padding-left: 5px;
+}
+form.apply section.mainFourth div.containerBox div.container table td {
+  outline: solid 0.1px #0B4873;
+  text-align: left;
+  line-height: auto;
+  padding-left: 5px;
+  color: #0B4873;
+}
+form.apply section.mainFourth div.containerBox div.container table .btn {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form.apply section.mainFourth div.containerBox div.container .ApplyMap {
+  display: none;
+}
+form.apply section.mainFourth div.containerBox div.container section.main {
+  padding: 0;
+}
+form.apply section.mainFourth div.containerBox div.container section.main div.borderLeft {
+  margin-top: 10px;
+}
+form.apply .LastStep {
+  display: none;
+}
+form.apply .NextStep {
+  display: none;
+}
+
+form.applyGetNum div.mb-3 div.card {
+  flex-direction: column;
+}
+form.applyGetNum div.mb-3 div.card p {
+  color: #302A2A;
+}
+form.applyGetNum div.mb-3 div.card section.copyName {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+form.applyGetNum div.mb-3 div.card div.ApplyNum {
+  color: #0B4873;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 2;
+}
+form.applyGetNum div.mb-3 div.card button {
+  background-color: #FFFFFF;
+  border: #0B4873 1px solid;
+  margin-left: 10px;
+  color: #0B4873;
+}
+form.applyGetNum div.mb-3 div.card button:hover {
+  background-color: #0B4873;
+  border: #0B4873 1px solid;
+  margin-left: 10px;
+  color: #FFFFFF;
+}
+
+form.memberCenter div.outline {
+  outline: solid #0B4873 1px;
+}
+form.memberCenter a {
+  text-decoration: none;
+}
+form.memberCenter a div.containerMember {
+  border-radius: 1rem;
+}
+form.memberCenter a div.containerMember div.card {
+  margin: 30px 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  height: auto;
+  width: 100%;
+  border: solid 1px #0B4873;
+  border-radius: 1rem;
+}
+form.memberCenter a div.containerMember div.card div {
+  width: auto;
+  height: 100%;
+}
+form.memberCenter a div.containerMember div.card div i {
+  font-size: 6rem;
+  color: #0B4873;
+}
+form.memberCenter a div.containerMember div.card div div {
+  margin: 15px 0;
+}
+form.memberCenter a div.containerMember div.card div div h5 {
+  color: #0B4873;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+}
+form.memberCenter a div.containerMember:hover {
+  box-shadow: 1px 1px rgb(97, 97, 97);
+}
+form.memberCenter a div.containerMember:hover div.card {
+  background-color: #0B4873;
+}
+form.memberCenter a div.containerMember:hover div.card div i {
+  font-size: 6rem;
+  color: #FFFFFF;
+}
+form.memberCenter a div.containerMember:hover div.card div div {
+  margin: 15px 0;
+}
+form.memberCenter a div.containerMember:hover div.card div div h5 {
+  color: #FFFFFF;
+  font-size: 18px;
+  text-align: center;
+  font-weight: lighter;
+}
+
+section.content div.loginBtn a:first-child {
+  display: none;
+}
+section.content a.changeIndex {
+  display: none;
+}
+
+form.loginPwdChange div div.outline {
+  outline: solid #0B4873 1px;
+}
+form.loginPwdChange div div.card {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  height: 26px;
+}
+form.loginPwdChange div .formTitle {
+  width: 150px;
+  color: #0B4873;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+}
+form.loginPwdChange div.pass {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+form.loginPwdChange div.pass div {
+  width: 150px;
+  margin-right: 15px;
+}
+form.loginPwdChange div.pass p {
+  margin-left: auto;
+  width: 100%;
+  margin-top: -20px;
+  display: block;
+  color: #761306;
+  text-align: left;
+  font-size: 14px;
+  text-decoration: none;
+}
+form.loginPwdChange .addressA {
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 38px;
+  margin: 30px 0;
+}
+form.loginPwdChange .addressA .form-control,
+form.loginPwdChange .addressA .form-floating {
+  margin-left: auto;
+  width: 100%;
+  height: 100%;
+}
+form.loginPwdChange .addressA #floatingSelectGrid,
+form.loginPwdChange .addressA #floatingInputGrid {
+  padding-left: 10px;
+  text-align: left;
+  height: 100%;
+}
+
+form.MemberEdit div div.outline {
+  outline: solid #0B4873 1px;
+}
+form.MemberEdit div div.card {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  height: 26px;
+}
+form.MemberEdit div .formTitle {
+  width: 150px;
+  color: #0B4873;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+}
+form.MemberEdit div.pass {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+form.MemberEdit div.pass div {
+  width: 150px;
+  margin-right: 15px;
+}
+form.MemberEdit div.pass p {
+  margin-left: auto;
+  width: 100%;
+  margin-top: -20px;
+  display: block;
+  color: #761306;
+  text-align: left;
+  font-size: 14px;
+  text-decoration: none;
+}
+form.MemberEdit .addressA {
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 38px;
+  margin: 30px 0;
+}
+form.MemberEdit .addressA .form-control,
+form.MemberEdit .addressA .form-floating {
+  margin-left: auto;
+  width: 100%;
+  height: 100%;
+}
+form.MemberEdit .addressA #floatingSelectGrid,
+form.MemberEdit .addressA #floatingInputGrid {
+  padding-left: 10px;
+  text-align: left;
+  height: 100%;
+}/*# sourceMappingURL=style.css.map */

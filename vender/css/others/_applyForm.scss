@@ -1,0 +1,305 @@
+form.apply {
+	main {
+		display: flex;
+		justify-content: center;
+
+		div.row {
+			padding: 0;
+			width: 100%;
+
+			div.col-sm-3 {
+				padding: 0;
+
+				div.card {
+					padding-bottom: 3px;
+					border-radius: 0px;
+					border: 0px;
+					border-bottom: 2px solid $color6;
+
+					div.card-body {
+						padding: 0;
+
+						p.bigNum {
+							font-size: $h3;
+							font-weight: lighter;
+							color: $color6;
+						}
+
+						p.card-text {
+							font-size: $h7;
+							color: $color6;
+						}
+					}
+				}
+			}
+		}
+
+		.active {
+			font-size: $h3;
+			font-weight: bolder;
+			color: $color;
+		}
+
+		.activeT {
+			font-size: $h7;
+			font-weight: bolder;
+			color: $color;
+		}
+
+		.activeBb {
+			padding-bottom: 3px;
+			border-radius: 0px;
+			border: 0px;
+
+		}
+	}
+
+	section.main {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		padding-top: 15px;
+
+		div.row {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+
+			.address {
+				width: 100%;
+				// margin: 30px 0 15px 0;
+			}
+
+			div.formTitle {
+				width: 150px;
+				color: $color;
+				font-weight: bold;
+				font-size: $h5;
+				text-align: left;
+
+			}
+
+			.addressA {
+				display: flex;
+				align-items: center;
+				// border: 1px solid black;
+				width: auto;
+				height: 32px;
+				margin-bottom: 10px;
+			}
+		}
+
+		.form-control,
+		.form-floating {
+			margin-left: auto;
+			width: 100%;
+			height: 100%;
+		}
+
+		#floatingSelectGrid,
+		#floatingInputGrid {
+			padding: 0;
+			padding-left: 10px;
+			text-align: left;
+			height: 100%;
+		}
+
+
+	}
+
+	div.tip {
+		margin: 10px 0;
+		border-radius: 0.5rem;
+		border: solid $color 1px;
+		width: 100%;
+		padding: 10px 0;
+
+
+		div.container {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: row;
+
+			ul,
+			li {
+				font-size: $h6;
+				text-align: left;
+				line-height: 1.6;
+				margin: 5px 0;
+				border-radius: 1rem;
+				font-weight: normal;
+				letter-spacing: 2px;
+			}
+
+			div.sectionLeft {
+				ul {
+					color: $white;
+
+					li {
+						background-color: $color;
+						padding: 0.5px 10px;
+					}
+
+					li:last-child {
+						background-color: $color2;
+					}
+				}
+			}
+
+			div.sectionRight {
+				ul {
+					li {
+						padding: 0 6px;
+						color: $color;
+					}
+				}
+			}
+		}
+
+
+		span {
+			line-height: 1.6;
+			color: $color;
+			font-weight: lighter;
+			font-size: $h6;
+			text-align: left;
+		}
+	}
+
+
+	div.containerBox {
+		margin: 10px 0;
+		width: 100%;
+		height: auto;
+		border: 0.5px $color solid;
+		border-radius: 0.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
+		display: none;
+
+
+		div.container {
+			// background-color: black;
+			// margin: 0 auto;
+			width: 100%;
+			// height: 90%;
+			// background-color: black;
+			border-radius: 0.5rem;
+			padding: 0;
+			overflow: hidden;
+			outline: solid $color 1px;
+			// border-radius: 0.5rem;
+
+			.card-header:first-child {
+				// border-radius: 0;
+			}
+
+			div.card-header {
+				background-color: $white;
+				width: 100%;
+				border-bottom: 0px;
+				padding: 0;
+				line-height: 32px;
+				font-weight: bolder;
+				font-size: $h5;
+				margin-top: 2px;
+			}
+
+			div.card-body {
+				// overflow-y: scroll;
+				height: auto;
+				padding: 0;
+			}
+
+			table {
+
+				tr {
+					border: auto 0;
+					outline: solid 0.1px $color;
+				}
+
+				th {
+					font-weight: lighter;
+				}
+
+				td {
+					// border: 0.5px $color solid;
+					outline: solid 0.1px $color;
+				}
+
+				.btn {
+					text-align: center;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+
+
+			}
+
+			.ApplyMap {
+				display: none;
+			}
+		}
+
+		nav {
+			line-height: 32px;
+			padding: 10px;
+		}
+
+
+	}
+
+	// 搜尋列
+	.SearchBar {
+		display: flex;
+		flex-direction: row;
+		height: 100%;
+		width: 100%;
+		border: 1px solid #ced4da;
+		border-radius: 0.25rem;
+
+		input {
+			border: none;
+		}
+
+		span {
+
+			button {
+				height: 100%;
+				width: 100%;
+				color: $color;
+				border: none;
+			}
+		}
+	}
+
+	div.inputSearch {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		div.form-box {
+
+			input,
+			label {
+				margin: 0;
+			}
+		}
+
+		div,
+		a {
+			margin: 0 10px
+		}
+	}
+
+	.NextStep {
+		display: none;
+	}
+
+}

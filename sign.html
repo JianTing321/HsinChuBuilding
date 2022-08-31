@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link href="./vender/css/style.css" rel="stylesheet" />
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+	<title>新會員註冊</title>
+</head>
+
+<body>
+	<section class="all" id="main">
+		<header>
+			<section-title></section-title>
+		</header>
+		<main>
+			<section class="content main">
+				<section class="content">
+					<!-- 以上皆固定 -->
+					<form class="sign">
+						<div class="mb-3">
+							<label for="exampleInputName" class="form-label mainText">新會員註冊</label>
+							<div class="outline"></div>
+							<div class="card">
+								<div class="formTitle ">姓名</div><input type="email" class="form-control"
+									id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="請輸入姓名或公司名稱">
+							</div>
+							<div class="singtip">
+								<div></div>
+								<p>＊須填寫與後續使用的自然人憑證或工商憑證相符的資料</p>
+							</div>
+							<!-- <div class="card">
+								<div class="formTitle">身分證或統編</div><input type="email" class="form-control"
+									id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="請輸入身分證或統一編號">
+							</div> -->
+							<div class="singtip">
+								<div></div>
+								<p>＊須填寫與後續使用的自然人憑證或工商憑證相符的資料</p>
+							</div>
+							<div class="card ">
+								<div class="formTitle ">電話</div><input type="email" class="form-control"
+									id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="請輸入電話">
+							</div>
+							<div class="card notImport">
+								<div class="formTitle">地址</div><input type="email" class="form-control"
+									id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="請輸入地址">
+							</div>
+							<div class="card ">
+								<div class="formTitle">電子信箱</div>
+								<input type="email" class="form-control" id="exampleInputEmail1"
+									aria-describedby="emailHelp" placeholder="請輸入信箱">
+							</div>
+							<div class="singtip">
+								<div></div>
+								<p>＊一個帳號只得綁定一個信箱，不得重複使用</p>
+							</div>
+							<section class="checkBox">
+								<input type="checkBox">
+								<div class="checkBoxTip">本人已確認並同意將上述資料提供本平台登入驗證使用</div>
+							</section>
+						</div>
+
+						<br>
+						<button type="button" class="btn btn-warning" @click="returnPage">返回</button>
+						<button type="button" class="btn btn-primary" @click="sendCheckMail">提交</button>
+
+					</form>
+				</section>
+			</section>
+		</main>
+		<footer>
+		</footer>
+	</section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+<script src="./vender/js/header.js"></script>
+<script src="./vender/js/main.js"></script>
+</script>
+
+</html>
